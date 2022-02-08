@@ -1,33 +1,41 @@
 [![New Relic Experimental header](https://github.com/newrelic/opensource-website/raw/master/src/images/categories/Experimental.png)](https://opensource.newrelic.com/oss-category/#new-relic-experimental)
 
-# [Name of Project] [build badges go here when available]
+# otel-env-provider
 
->[Brief description - what is the project and value does it provide? How often should users expect to get releases? How is versioning set up? Where does this project want to go?]
+> Create OpenTelemetry instrumented environments on demand.
+
+Predefined scenarios are located under [terraform](terraform)
+folder and can be spawned with custom configurations. When creating and environment, a copy of the selected scenario will 
+be created and placed under [environments](environments) folder with the custom configuration. 
 
 ## Installation
 
-> [Include a step-by-step procedure on how to get your code installed. Be sure to include any third-party dependencies that need to be installed separately]
+* [Docker](https://www.docker.com/) Application will run in docker so no other software dependencies are required.
+* **AWS Credentials**: `~/.aws` folder will be used to create the infrastructure in AWS
+* **SSH Key**: `~/.ssh` folder will be used to access the ES2 instances
+* `AWS_PROFILE` : Environment variable with the profile to be used
+* `AWS_REGION` : Environment variable with the AWS region to be used 
 
 ## Getting Started
->[Simple steps to start working with the software similar to a "Hello World"]
 
-## Usage
->[**Optional** - Include more thorough instructions on how to use the software. This section might not be needed if the Getting Started section is enough. Remove this section if it's not needed.]
-
-
-## Building
-
->[**Optional** - Include this section if users will need to follow specific instructions to build the software from source. Be sure to include any third party build dependencies that need to be installed separately. Remove this section if it's not needed.]
-
-## Testing
-
->[**Optional** - Include instructions on how to run tests if we include tests with the codebase. Remove this section if it's not needed.]
+> Executing `run.sh` will guide you to create, execute and destroy environments. After creating the environment, check the
+README.md of the created environment to check how to configure it.
+```shell
+./run.sh
+```
 
 ## Support
 
-New Relic hosts and moderates an online forum where customers can interact with New Relic employees as well as other customers to get help and share best practices. Like all official New Relic open source projects, there's a related Community topic in the New Relic Explorers Hub. You can find this project's topic/threads here:
+* [single-ec2](terraform/single-ec2): Launch an ec2 instance
+* [otel-ec2](terraform/otel-ec2): Spawn ec2 instances with the Open Telemetry Collector (gateway or agent)
 
->Add the url for the support thread here
+## Troubleshooting
+#### Terraform gets stuck after plan
+Probably aws credentials are expired. Renew them and execute action again.
+
+#### Ansible cannot connect to host
+Ensure that the ssh_key path provided is the one inside the docker container (i.e. : /root/.ssh/your_key_name). `.ssh` 
+folder gets mounted `ro` inside the container so any key from the host machine should work.
 
 ## Contributing
 We encourage your contributions to improve [project name]! Keep in mind when you submit your pull request, you'll need to sign the CLA via the click-through using CLA-Assistant. You only have to sign the CLA one time per project.
