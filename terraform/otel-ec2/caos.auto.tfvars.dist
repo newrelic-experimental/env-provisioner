@@ -1,0 +1,31 @@
+ec2_otels = {
+	"caos-ubuntu18.04-otel" = {
+		ami = ""
+		subnet=""
+		security_groups=[""]
+		key_name=""
+		instance_type=""
+		username=""
+		tags = {
+			"otel_role" = "agent"
+		}
+	}
+	"caos-centosstream-otel" = {
+		ami = ""
+		subnet=""
+		security_groups=[""]
+		key_name=""
+		instance_type=""
+		username=""
+		tags = {}
+		tags = {
+			"otel_role" = "gateway"
+		}
+	}
+}
+
+
+ssh_pub_key=""
+pvt_key=""
+otlp_endpoint=""
+nr_license_key=""
