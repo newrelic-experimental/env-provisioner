@@ -1,0 +1,10 @@
+---
+
+# For now this is an example. Ansible part is out of scope.
+
+- hosts: all
+  become: true
+  gather_facts: yes
+  roles:
+    - { name: otel-collector-config }
+    - { name: otel-collector }

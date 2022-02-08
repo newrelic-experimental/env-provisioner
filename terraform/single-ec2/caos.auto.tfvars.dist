@@ -1,0 +1,13 @@
+# Default vars
+
+ami=""
+subnet=""
+security_groups=[""]
+key_name=""
+instance_type=""
+username=""
+ssh_pub_key=""
+pvt_key=""
+name=""
+otlp_endpoint=""
+nr_license_key=""
