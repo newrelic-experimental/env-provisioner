@@ -53,6 +53,8 @@ make init-${environmentName}
 
 case $ACTION in
 d | c)
+  echo "Installing dependencies..."
+  make deps
   make apply-${environmentName}
   ;;
 k)

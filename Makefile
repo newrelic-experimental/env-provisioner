@@ -1,6 +1,7 @@
 PROJDIR := $(realpath $(CURDIR))
 TERRAFORM_DIR := terraform
 ENVS_DIR := environments
+ANSIBLE_CAOS := ansible/caos-ansible-roles
 
 SAMPLES = $(shell basename -a $(wildcard $(addprefix $(PROJDIR)/, $(TERRAFORM_DIR))/*))
 
@@ -16,6 +17,9 @@ format:
 	@terraform fmt \
 		-write=true \
 		-recursive
+deps:
+	git submodule update --init
+	@for role in $(shell find ${ANSIBLE_CAOS} -maxdepth 1 -type d -not -path '*/.*' | tail -n +2 ); do cd $${role}; [ -f requirements.yml ] && ansible-galaxy install --roles-path ../../ -r requirements.yml; cd ../; done
 
 define make-new-env
   new-$1:
