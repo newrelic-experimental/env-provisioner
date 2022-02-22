@@ -1,0 +1,3 @@
+[submodule "ansible/caos-ansible-roles"]
+	path = ansible/caos-ansible-roles
+	url = https://github.com/newrelic-experimental/caos-ansible-roles.git

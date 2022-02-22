@@ -1,9 +1,9 @@
-[gateway]
+[gateways]
 %{ for index, vms in gateway-ids ~}
-${vms} ansible_host=${gateway-private-ip[index]}
+${vms} ansible_user=${gateway-user[index]} ansible_host=${gateway-private-ip[index]}
 %{ endfor ~}
 
 [agents]
 %{ for index, vms in agent-ids ~}
-${vms} ansible_host=${agent-private-ip[index]}
+${vms} ansible_user=${agent-user[index]} ansible_host=${agent-private-ip[index]}
 %{ endfor ~}

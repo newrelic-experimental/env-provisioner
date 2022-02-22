@@ -35,10 +35,20 @@ resource "local_file" "AnsibleInventory" {
   content = templatefile("${path.module}/inventory.tmpl",
     {
       gateway-ids        = [for k, p in module.otels : p.id if p.tags_all["otel_role"] == "gateway"],
+      gateway-user       = [for k, p in module.otels : var.ec2_otels[k].username if p.tags_all["otel_role"] == "gateway"],
       gateway-private-ip = [for k, p in module.otels : p.private_ip if p.tags_all["otel_role"] == "gateway"],
       agent-ids          = [for k, p in module.otels : p.id if p.tags_all["otel_role"] == "agent"],
+      agent-user         = [for k, p in module.otels : var.ec2_otels[k].username if p.tags_all["otel_role"] == "agent"],
       agent-private-ip   = [for k, p in module.otels : p.private_ip if p.tags_all["otel_role"] == "agent"],
     }
   )
   filename = "inventory"
+}
+
+resource "null_resource" "ansible" {
+  depends_on = [null_resource.wait]
+
+  provisioner "local-exec" {
+    command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i inventory -e collector_otlp_endpoint=${var.otlp_endpoint} -e collector_nr_license_key=${var.nr_license_key} --private-key ${var.pvt_key} ../../ansible/install-otelcol.yml"
+  }
 }
