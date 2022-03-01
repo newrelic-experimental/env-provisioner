@@ -46,6 +46,7 @@ if [ -z "${environmentName}" ]; then
 fi
 if [ ! -f "environments/${environmentName}/caos.auto.tfvars" ]; then
   echo "Rename "environments/${environmentName}/caos.auto.tfvars.dist" to "environments/${environmentName}/caos.auto.tfvars", fill the variables and re-run command"
+  echo "cp environments/single-from-otel-ec2/caos.auto.tfvars.dist environments/single-from-otel-ec2/caos.auto.tfvars"
   exit 1
 fi
 

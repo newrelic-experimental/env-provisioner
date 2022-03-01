@@ -24,6 +24,7 @@ docker run -it --rm \
   -v "$(pwd)":"${PROJECT_DIR}" \
   -v ~/.aws:/root/.aws:ro \
   -v ~/.ssh:/root/.ssh:ro \
+  -v ~/.kube:/root/.kube:ro \
   -e AWS_PROFILE="${AWS_PROFILE}" \
   -e AWS_REGION="${AWS_REGION}" \
   -w "${PROJECT_DIR}" ${IMAGE_NAME} "${PROJECT_DIR}/entrypoint.sh"

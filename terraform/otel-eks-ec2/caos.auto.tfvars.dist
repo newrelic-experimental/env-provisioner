@@ -1,0 +1,14 @@
+cluster_name = ""
+ssh_key_name = ""
+
+# AWS Region
+#default = "eu-west-1"
+
+# Add your tags if necessary
+#tags = {
+#    owning_team = "some team"
+#}
+
+# Instances properties
+#instance_types = ["m6i.large"]
+#disk_size = 50
