@@ -56,3 +56,11 @@ aws eks update-kubeconfig --region AWS_REGION --name CLUSTER_NAME
 ## Outputs
 
 No outputs.
+
+```mermaid
+  graph TD;
+      A-->B;
+      A-->C;
+      B-->D;
+      C-->D;
+```
