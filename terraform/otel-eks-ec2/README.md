@@ -59,7 +59,7 @@ No outputs.
 
 ```mermaid
   graph TD;
-      A-->B;
+      A-->B[an <b>important</b> <a href='../otel-ec2/README.md'>link</a>];
       A-->C;
       B-->D;
       C-->D;
