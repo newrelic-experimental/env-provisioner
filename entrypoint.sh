@@ -45,8 +45,8 @@ if [ -z "${environmentName}" ]; then
   environmentName=$(ls "environments" | percol --prompt-bottom --prompt "Select environment:")
 fi
 if [ ! -f "environments/${environmentName}/caos.auto.tfvars" ]; then
-  echo "Rename "environments/${environmentName}/caos.auto.tfvars.dist" to "environments/${environmentName}/caos.auto.tfvars", fill the variables and re-run command"
-  echo "cp environments/single-from-otel-ec2/caos.auto.tfvars.dist environments/single-from-otel-ec2/caos.auto.tfvars"
+  echo "Rename environments/${environmentName}/caos.auto.tfvars.dist to environments/${environmentName}/caos.auto.tfvars, fill the variables and re-run command"
+  echo "cp environments/${environmentName}/caos.auto.tfvars.dist environments/${environmentName}/caos.auto.tfvars"
   exit 1
 fi
 
