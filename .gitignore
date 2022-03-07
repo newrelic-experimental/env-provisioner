@@ -1,2 +1,21 @@
+# Roles dependencies
 ansible/*
+# Do not ignore playbooks
+!ansible/*.yaml
+!ansible/*.yml
+# Created terraforms
 environments/*
+
+# Generik .gitkeep/.empty to maintain empty folders
+!.gitkeep
+!.empty
+
+# Local .terraform directories
+**/.terraform/*
+# .tfstate files
+*.tfstate
+*.tfstate.*
+*.auto.tfvars
+.terraform.lock.hcl
+
+
