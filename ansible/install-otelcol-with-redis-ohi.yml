@@ -1,0 +1,36 @@
+---
+- name: Install and configure Open Telemetry collector
+  hosts: agents
+  become: true
+
+  tasks:
+    - name: "Install docker"
+      include_role:
+        name: 'package_repo_update'
+
+    - name: "Install docker"
+      include_role:
+        name: 'geerlingguy.pip'
+      vars:
+        pip_install_packages:
+          - docker
+    - name: "Install docker2"
+      include_role:
+        name: "geerlingguy.docker"
+
+    - name: "Include opentelemetry_collector"
+      include_role:
+        name: "opentelemetry_collector"
+      vars:
+        collector_config_tpl: "otel-config-redis.yaml.j2"
+        template_vars:
+          redis_host: "0.0.0.0"
+          redis_port: 6379
+        
+    - name: "Run Redis container"
+      community.docker.docker_container:
+        name: "redis"
+        image: "redis:6.2.5-alpine"
+        privileged: yes
+        ports:
+          - "6379:6379"
