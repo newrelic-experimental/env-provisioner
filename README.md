@@ -26,8 +26,8 @@ README.md of the created environment to check how to configure it.
 
 ## Support
 
-* [single-ec2](terraform/single-ec2): Launch an ec2 instance
 * [otel-ec2](terraform/otel-ec2): Spawn ec2 instances with the Open Telemetry Collector (gateway or agent)
+* [otel-eks](terraform/otel-eks-ec2): Spawn an EKS cluster
 
 ## Troubleshooting
 #### Terraform gets stuck after plan
