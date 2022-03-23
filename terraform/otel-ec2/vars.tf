@@ -34,3 +34,6 @@ variable "ec2_otels" {
   type        = map(any)
 }
 
+variable "ansible_playbook" {
+  default = "../../ansible/install-otelcol.yml"
+}
