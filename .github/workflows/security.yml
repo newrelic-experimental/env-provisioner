@@ -1,0 +1,14 @@
+name: "Security scan"
+on: [push, pull_request]
+jobs:
+  tfsec:
+    name: Terraform security checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@master
+      - name: tfsec
+        uses: aquasecurity/tfsec-action@master
+        with:
+          soft_fail: true
