@@ -34,6 +34,14 @@ variable "ec2_otels" {
   type        = map(any)
 }
 
+variable "inventory_template" {
+  default = "inventory.tmpl"
+}
+
+variable "inventory_output" {
+  default = "inventory"
+}
+
 variable "ansible_playbook" {
   default = "../../ansible/install-otelcol.yml"
 }
