@@ -24,7 +24,7 @@ resource "null_resource" "wait" {
     }
 
     inline = [
-      "cloud-init status --wait"
+      "echo 'connected'"
     ]
   }
 }
