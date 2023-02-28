@@ -38,6 +38,7 @@ resource "local_file" "AnsibleInventory" {
       gateway-user       = [for k, p in module.otels : var.ec2_otels[k].username if p.tags_all["otel_role"] == "gateway"],
       gateway-private-ip = [for k, p in module.otels : p.private_ip if p.tags_all["otel_role"] == "gateway"],
       agent-ids          = [for k, p in module.otels : k],
+      agent-python       = [for k, p in module.otels : var.ec2_otels[k].python],
       agent-user         = [for k, p in module.otels : var.ec2_otels[k].username if p.tags_all["otel_role"] == "agent"],
       agent-private-ip   = [for k, p in module.otels : p.private_ip if p.tags_all["otel_role"] == "agent"],
     }
