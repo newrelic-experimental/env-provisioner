@@ -10,7 +10,12 @@ variable "api_key" {
 
 # US/EU/Staging
 variable "region" {
-  default = ""
+  default = "US"
+
+  validation {
+    condition     = can(regex("^(US|EU|Staging)$", var.region))
+    error_message = "Unsupported region"
+  }
 }
 
 variable "instance_name_pattern" {
