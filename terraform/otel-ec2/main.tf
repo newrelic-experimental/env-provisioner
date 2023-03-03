@@ -24,7 +24,7 @@ resource "null_resource" "wait" {
     }
 
     inline = [
-      "cloud-init status --wait"
+      "echo 'connected'"
     ]
   }
 }
@@ -32,23 +32,24 @@ resource "null_resource" "wait" {
 resource "local_file" "AnsibleInventory" {
   depends_on = [null_resource.wait]
 
-  content = templatefile("${path.module}/inventory.tmpl",
+  content = templatefile(var.inventory_template,
     {
       gateway-ids        = [for k, p in module.otels : p.id if p.tags_all["otel_role"] == "gateway"],
       gateway-user       = [for k, p in module.otels : var.ec2_otels[k].username if p.tags_all["otel_role"] == "gateway"],
       gateway-private-ip = [for k, p in module.otels : p.private_ip if p.tags_all["otel_role"] == "gateway"],
-      agent-ids          = [for k, p in module.otels : p.id if p.tags_all["otel_role"] == "agent"],
+      agent-ids          = [for k, p in module.otels : k],
+      agent-python       = [for k, p in module.otels : var.ec2_otels[k].python],
       agent-user         = [for k, p in module.otels : var.ec2_otels[k].username if p.tags_all["otel_role"] == "agent"],
       agent-private-ip   = [for k, p in module.otels : p.private_ip if p.tags_all["otel_role"] == "agent"],
     }
   )
-  filename = "inventory"
+  filename = var.inventory_output
 }
 
 resource "null_resource" "ansible" {
   depends_on = [null_resource.wait]
 
   provisioner "local-exec" {
-    command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i inventory -e collector_otlp_endpoint=${var.otlp_endpoint} -e collector_nr_license_key=${var.nr_license_key} --private-key ${var.pvt_key} ${var.ansible_playbook}"
+    command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ${var.inventory_output} -e collector_otlp_endpoint=${var.otlp_endpoint} -e collector_nr_license_key=${var.nr_license_key} --private-key ${var.pvt_key} ${var.ansible_playbook}"
   }
 }
