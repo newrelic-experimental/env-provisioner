@@ -20,8 +20,14 @@ data "aws_instance" "canary_instance" {
 # Alerts
 #############################################
 
-
-# Prepare alerts name <-> instance name relationship.
+# Iterate all the instances and prepare alerts name <-> instance name relationship.
+# i.e:
+# alerts_instances = {
+# "canary:v1.37.2:amd64:al-2"            = "policies_prefix / al-2 / amd64"
+# "canary:v1.37.2:amd64:al-2022"         = "policies_prefix / al-2022 / amd64"
+# "canary:v1.37.2:amd64:centos-stream"   = "policies_prefix / centos-stream / amd64"
+# "canary:v1.37.2:amd64:centos7"         = "policies_prefix / centos7 / amd64"
+# }
 locals {
   alerts_instances = {
     for ins in data.aws_instance.canary_instance :
@@ -35,13 +41,32 @@ locals {
   }
 }
 
-# Create alerts policies for Canary EC2 instance.
+# Uncomment this to "debug" the generated structure
+output prueba {
+  value = local.alerts_instances
+}
+
+# Iterate alerts_instances and create policies for Canary EC2 instance.
+# i.e:
+# alerts_instances = {
+# "canary:v1.37.2:amd64:al-2"            = "policies_prefix / al-2 / amd64"
+# "canary:v1.37.2:amd64:al-2022"         = "policies_prefix / al-2022 / amd64"
+# "canary:v1.37.2:amd64:centos-stream"   = "policies_prefix / centos-stream / amd64"
+# "canary:v1.37.2:amd64:centos7"         = "policies_prefix / centos7 / amd64"
+# }
+# Will create policies:
+# [
+# "policies_prefix / al-2 / amd64"
+# "policies_prefix / al-2022 / amd64"
+# "policies_prefix / centos-stream / amd64"
+# "policies_prefix / centos7 / amd64"
+# ]
 resource "newrelic_alert_policy" "alert_canary" {
   for_each = local.alerts_instances
   name     = each.value
 }
 
-# Iterate created policies * conditions and create a single list that contains
+# Iterate created policies * vars.conditions and create a single list that contains
 # all conditions per policy + instance name.
 # We use policy name to get instance name from alerts_instances.
 #
