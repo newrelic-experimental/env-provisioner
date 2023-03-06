@@ -9,7 +9,7 @@ module "alerts" {
   account_id            = 123456789
   region                = "Staging" # EU|US|Staging
   instance_name_pattern = "canary:v1.37.2:*" # ec2 instances name pattern
-  policies_prefix       = "[pre-release] Canaries metric comparator"
+  policies_prefix       = "pre-release__Canaries_metric_comparator" # no spaces or bash special characters for now
 
   conditions = [
     {
@@ -40,12 +40,12 @@ Place templates in the folder used in conditions:
 cat ./nrql_templates/agent_process_metrics.tftpl
 
 SELECT abs(
-filter(average(numeric(${metric})),WHERE displayName like '${displayNameCurrent}')
+filter(average(numeric(${metric})),WHERE displayName like '${display_name_current}')
 -
-filter(average(numeric(${metric})),WHERE displayName like '${displayNamePrevious}')
+filter(average(numeric(${metric})),WHERE displayName like '${display_name_previous}')
 )
 FROM ProcessSample
 WHERE commandLine = '/usr/bin/newrelic-infra'
-AND displayName IN ('${displayNameCurrent}','${displayNamePrevious}')
+AND displayName IN ('${display_name_current}','${display_name_previous}')
 
 ```
