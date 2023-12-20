@@ -23,28 +23,6 @@ variable "nr_license_key" {
   }
 }
 
-# CrowdStrike vars
-variable "crowdstrike_client_id" {
-  validation {
-    condition     = length(var.crowdstrike_client_id) > 0
-    error_message = "The crowdstrike_client_id must be provided."
-  }
-}
-
-variable "crowdstrike_client_secret" {
-  validation {
-    condition     = length(var.crowdstrike_client_secret) > 0
-    error_message = "The crowdstrike_client_secret must be provided."
-  }
-}
-
-variable "crowdstrike_customer_id" {
-  validation {
-    condition     = length(var.crowdstrike_customer_id) > 0
-    error_message = "The crowdstrike_customer_id must be provided."
-  }
-}
-
 variable "ssh_pub_key" {
   description = "Public key that will be added as authorized key"
   type        = string

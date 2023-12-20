@@ -50,6 +50,6 @@ resource "null_resource" "ansible" {
   depends_on = [local_file.AnsibleInventory]
 
   provisioner "local-exec" {
-    command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ${var.inventory_output} -e collector_otlp_endpoint=${var.otlp_endpoint} -e collector_nr_license_key=${var.nr_license_key} -e crowdstrike_client_id=${var.crowdstrike_client_id} -e crowdstrike_client_secret=${var.crowdstrike_client_secret} -e crowdstrike_customer_id=${var.crowdstrike_customer_id} --private-key ${var.pvt_key} ${var.ansible_playbook}"
+    command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ${var.inventory_output} -e collector_otlp_endpoint=${var.otlp_endpoint} -e collector_nr_license_key=${var.nr_license_key} -e crowdstrike_client_id=$CROWDSTRIKE_CLIENT_ID -e crowdstrike_client_secret=$CROWDSTRIKE_CLIENT_SECRET -e crowdstrike_customer_id=$CROWDSTRIKE_CUSTOMER_ID --private-key ${var.pvt_key} ${var.ansible_playbook}"
   }
 }
