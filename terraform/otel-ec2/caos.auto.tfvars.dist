@@ -27,6 +27,7 @@ ec2_otels = {
 
 ssh_pub_key=""
 pvt_key=""
+windows_password=""
 otlp_endpoint=""
 nr_license_key=""
 ansible_playbook=""

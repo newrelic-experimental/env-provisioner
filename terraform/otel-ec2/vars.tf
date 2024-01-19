@@ -9,6 +9,12 @@ variable "pvt_key" {
   }
 }
 
+variable "windows_password" {
+  description = "windows password"
+  default     = ""
+  type        = string
+}
+
 variable "otlp_endpoint" {
   validation {
     condition     = length(var.otlp_endpoint) > 0

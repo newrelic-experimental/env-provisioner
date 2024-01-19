@@ -3,6 +3,7 @@ module "otels" {
   version = "3.4.0"
 
   for_each               = var.ec2_otels
+  
   name                   = each.key
   ami                    = each.value.ami
   instance_type          = each.value.instance_type
@@ -13,8 +14,11 @@ module "otels" {
 
 }
 
-resource "null_resource" "wait" {
-  for_each = var.ec2_otels
+resource "null_resource" "wait_linux" {
+
+  for_each = {for key, val in var.ec2_otels:
+              key => val if val.platform == "linux"}
+
   provisioner "remote-exec" {
     connection {
       type        = "ssh"
@@ -29,8 +33,29 @@ resource "null_resource" "wait" {
   }
 }
 
+resource "null_resource" "wait_windows" {
+
+  for_each = {for key, val in var.ec2_otels:
+              key => val if val.platform == "windows"}
+
+  provisioner "remote-exec" {
+    connection {
+      type        = "winrm"
+      user        = each.value.username
+      host        = module.otels[each.key].private_ip
+      password    = "${var.windows_password}"
+      insecure    = true
+      https       = true
+    }
+
+    inline = [
+      "echo 'connected'"
+    ]
+  }
+}
+
 resource "local_file" "AnsibleInventory" {
-  depends_on = [null_resource.wait]
+  depends_on = [null_resource.wait_linux, null_resource.wait_windows]
 
   content = templatefile(var.inventory_template,
     {
@@ -41,6 +66,9 @@ resource "local_file" "AnsibleInventory" {
       agent-python       = [for k, p in module.otels : var.ec2_otels[k].python],
       agent-user         = [for k, p in module.otels : var.ec2_otels[k].username if p.tags_all["otel_role"] == "agent"],
       agent-private-ip   = [for k, p in module.otels : p.private_ip if p.tags_all["otel_role"] == "agent"],
+      instance-id        = [for k, p in module.otels : p.id],
+      platform           = [for k, p in module.otels : var.ec2_otels[k].platform],
+      windows_password   = var.windows_password
     }
   )
   filename = var.inventory_output
