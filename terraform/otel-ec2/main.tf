@@ -5,7 +5,7 @@ locals {
         strcontains(k, f)]) }
 
     // Replace the TAG_OR_UNIQUE_NAME
-    assembled_ec2 = { for k, v in local.filtered_ec2_agents : replace(k, "TAG_OR_UNIQUE_NAME", var.ec2_prefix) => v }
+    assembled_ec2 = var.ec2_prefix == "" ? local.filtered_ec2_agents : { for k, v in local.filtered_ec2_agents : format("%s-%s", var.ec2_prefix, k) => v }
 }
 
 module "otels" {
