@@ -48,6 +48,11 @@ variable "ansible_playbook" {
   default = "../../ansible/install-otelcol.yml"
 }
 
+variable "ec2_prefix" {
+  description = "EC2 instances names prefix, it will replace the TAG_OR_UNIQUE_NAME of the default ec2_otels map"
+  default = "env-provisioner"
+}
+
 variable "ec2_filters" {
   description = "EC2 instances names to deploy"
   default = []
@@ -65,6 +70,7 @@ variable "ec2_otels" {
         instance_type   = "t3a.small"
         username        = "ubuntu"
         python          = "/usr/bin/python3"
+        platform        = "linux"
         tags            = {
           "otel_role" = "agent"
         }
@@ -77,6 +83,7 @@ variable "ec2_otels" {
         instance_type   = "t4g.small"
         username        = "ubuntu"
         python          = "/usr/bin/python3"
+        platform        = "linux"
         tags            = {
           "otel_role" = "agent"
         }
