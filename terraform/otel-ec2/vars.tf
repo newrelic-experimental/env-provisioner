@@ -35,10 +35,6 @@ variable "ssh_pub_key" {
   type        = string
 }
 
-variable "ec2_otels" {
-  description = "List of EC2 Open Telemetry Collectors to deploy"
-  type        = map(any)
-}
 
 variable "inventory_template" {
   default = "inventory.tmpl"
@@ -50,4 +46,40 @@ variable "inventory_output" {
 
 variable "ansible_playbook" {
   default = "../../ansible/install-otelcol.yml"
+}
+
+variable "ec2_filters" {
+  description = "EC2 instances names to deploy"
+  default = []
+}
+
+variable "ec2_otels" {
+  description = "List of available EC2 instances"
+  type        = map(any)
+  default = {
+      "TAG_OR_UNIQUE_NAME-amd64:ubuntu22.04" = {
+        ami             = "ami-0aeb7c931a5a61206"
+        subnet          = "subnet-09b64de757828cdd4"
+        security_groups = ["sg-044ef7bc34691164a"]
+        key_name        = "caos-dev-arm"
+        instance_type   = "t3a.small"
+        username        = "ubuntu"
+        python          = "/usr/bin/python3"
+        tags            = {
+          "otel_role" = "agent"
+        }
+      }
+      "TAG_OR_UNIQUE_NAME-arm64:ubuntu22.04" = {
+        ami             = "ami-0717cbd2f49a61ed0"
+        subnet          = "subnet-09b64de757828cdd4"
+        security_groups = ["sg-044ef7bc34691164a"]
+        key_name        = "caos-dev-arm"
+        instance_type   = "t4g.small"
+        username        = "ubuntu"
+        python          = "/usr/bin/python3"
+        tags            = {
+          "otel_role" = "agent"
+        }
+      }
+  }
 }
