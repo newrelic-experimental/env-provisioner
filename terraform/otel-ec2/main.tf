@@ -4,8 +4,8 @@ locals {
     for k, v in var.ec2_otels : k => v if anytrue([for f in var.ec2_filters :
         strcontains(k, f)]) }
 
-    // Replace the TAG_OR_UNIQUE_NAME
-    assembled_ec2 = var.ec2_prefix == "" ? local.filtered_ec2_agents : { for k, v in local.filtered_ec2_agents : format("%s-%s", var.ec2_prefix, k) => v }
+    // Append ec2_prefix to ec2 instances name
+    assembled_ec2 = var.ec2_prefix == "" ? local.filtered_ec2_agents : { for k, v in local.filtered_ec2_agents : format("%s:%s", var.ec2_prefix, k) => v }
 }
 
 module "otels" {
