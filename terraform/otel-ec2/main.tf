@@ -77,7 +77,12 @@ resource "local_file" "AnsibleInventory" {
 resource "null_resource" "ansible" {
   depends_on = [local_file.AnsibleInventory]
 
+  triggers = {
+    always_run = "${timestamp()}"
+  }
+
   provisioner "local-exec" {
     command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ${var.inventory_output} -e collector_otlp_endpoint=${var.otlp_endpoint} -e collector_nr_license_key=${var.nr_license_key} --private-key ${var.pvt_key} ${var.ansible_playbook}"
   }
 }
+
