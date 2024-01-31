@@ -1,23 +1,24 @@
 ec2_otels = {
 	"caos-ubuntu18.04-otel" = {
 		ami = ""
-		subnet=""
-		security_groups=[""]
-		key_name=""
-		instance_type=""
-		username=""
+		subnet = ""
+		security_groups = [""]
+		key_name = ""
+		instance_type = ""
+		username = ""
+		platform = "linux"
 		tags = {
 			"otel_role" = "agent"
 		}
 	}
 	"caos-centosstream-otel" = {
 		ami = ""
-		subnet=""
-		security_groups=[""]
-		key_name=""
-		instance_type=""
-		username=""
-		tags = {}
+		subnet = ""
+		security_groups = [""]
+		key_name = ""
+		instance_type = ""
+		platform = "linux"
+		username = ""
 		tags = {
 			"otel_role" = "gateway"
 		}
@@ -25,9 +26,10 @@ ec2_otels = {
 }
 
 
-ssh_pub_key=""
-pvt_key=""
-windows_password=""
-otlp_endpoint=""
-nr_license_key=""
-ansible_playbook=""
+ssh_pub_key = ""
+pvt_key = ""
+windows_password = ""
+otlp_endpoint = ""
+nr_license_key = ""
+ansible_playbook = ""
+ec2_prefix = ""
