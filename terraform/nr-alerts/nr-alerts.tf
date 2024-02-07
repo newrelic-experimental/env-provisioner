@@ -66,6 +66,11 @@ resource "newrelic_alert_policy" "alert_canary" {
   name     = each.value
 }
 
+resource "newrelic_alert_policy" "alert_canary_v2" {
+  for_each = var.display_names
+  name     = format("%s:%s", each.value.previous, each.value.current)
+}
+
 # Iterate created policies * vars.conditions and create a single list that contains
 # all conditions per policy + instance name.
 # We use policy name to get instance name from alerts_instances.
@@ -114,12 +119,12 @@ locals {
   ])
 
   policies_with_display_names = flatten([
-    for display_name in var.display_names :
+    for idx, created_policy in newrelic_alert_policy.alert_canary_v2 :
     [
       for pol in var.conditions : {
       policy_id     = created_policy.id
-      display_name_previous = display_name.previous
-      display_name_current = display_name.current
+      display_name_previous = var.display_names[idx].previous
+      display_name_current = var.display_names[idx].current
       condition     = pol
     }
     ]
