@@ -112,6 +112,18 @@ locals {
     }
     ]
   ])
+
+  policies_with_display_names = flatten([
+    for display_name in var.display_names :
+    [
+      for pol in var.conditions : {
+      policy_id     = created_policy.id
+      display_name_previous = display_name.previous
+      display_name_current = display_name.current
+      condition     = pol
+    }
+    ]
+  ])
 }
 
 # Uncomment this to "debug" the generated structure
@@ -119,37 +131,67 @@ locals {
 #  value = local.policies_with_instances
 #}
 
+# resource "newrelic_nrql_alert_condition" "condition_nrql_canary" {
+#
+#   count = length(local.policies_with_instances)
+#
+#   account_id                   = var.account_id
+#   policy_id                    = local.policies_with_instances[count.index].policy_id
+#   name                         = local.policies_with_instances[count.index].condition.name
+#   violation_time_limit_seconds = 3600
+#
+#   nrql {
+#     query = templatefile(
+#       local.policies_with_instances[count.index].condition.template_name,
+#       merge(
+#         {
+#           "display_name_previous" : "${local.policies_with_instances[count.index].instance_name}-docker-previous"
+#           "display_name_current" : "${local.policies_with_instances[count.index].instance_name}-docker-current",
+#           "function" : null,
+#           "wheres" : {}
+#         },
+#         local.policies_with_instances[count.index].condition
+#       )
+#     )
+#   }
+#
+#   critical {
+#     operator              = local.policies_with_instances[count.index].condition.operator
+#     threshold             = local.policies_with_instances[count.index].condition.threshold
+#     threshold_duration    = local.policies_with_instances[count.index].condition.duration
+#     threshold_occurrences = "ALL"
+#   }
+#
+# }
 resource "newrelic_nrql_alert_condition" "condition_nrql_canary" {
-
-  count = length(local.policies_with_instances)
+  count = length(local.policies_with_display_names)
 
   account_id                   = var.account_id
-  policy_id                    = local.policies_with_instances[count.index].policy_id
-  name                         = local.policies_with_instances[count.index].condition.name
+  policy_id                    = local.policies_with_display_names[count.index].policy_id
+  name                         = local.policies_with_display_names[count.index].condition.name
   violation_time_limit_seconds = 3600
 
   nrql {
     query = templatefile(
-      local.policies_with_instances[count.index].condition.template_name,
+      local.policies_with_display_names[count.index].condition.template_name,
       merge(
         {
-          "display_name_previous" : "${local.policies_with_instances[count.index].instance_name}-docker-previous"
-          "display_name_current" : "${local.policies_with_instances[count.index].instance_name}-docker-current",
+          "display_name_previous" : "${local.policies_with_display_names[count.index].display_name_previous}"
+          "display_name_current" : "${local.policies_with_display_names[count.index].display_name_current}",
           "function" : null,
           "wheres" : {}
         },
-        local.policies_with_instances[count.index].condition
+        local.policies_with_display_names[count.index].condition
       )
     )
   }
 
   critical {
-    operator              = local.policies_with_instances[count.index].condition.operator
-    threshold             = local.policies_with_instances[count.index].condition.threshold
-    threshold_duration    = local.policies_with_instances[count.index].condition.duration
+    operator              = local.policies_with_display_names[count.index].condition.operator
+    threshold             = local.policies_with_display_names[count.index].condition.threshold
+    threshold_duration    = local.policies_with_display_names[count.index].condition.duration
     threshold_occurrences = "ALL"
   }
-
 }
 
 output "queries" {

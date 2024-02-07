@@ -22,6 +22,13 @@ variable "instance_name_pattern" {
   default = "canary:v0.0.0:*"
 }
 
+variable "display_names" {
+  type = list
+  default = [
+        { previous = "canary_v2", current = "canary_v3"}
+    ]
+}
+
 variable "policies_prefix" {
   default = "[pre-release] Canaries metric comparator"
 }
