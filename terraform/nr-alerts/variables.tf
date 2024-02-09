@@ -18,10 +18,6 @@ variable "region" {
   }
 }
 
-variable "instance_name_pattern" {
-  default = "canary:v0.0.0:*"
-}
-
 variable "display_names" {
   type = list
   default = [
