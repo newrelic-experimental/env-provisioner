@@ -1,4 +1,4 @@
-resource "newrelic_alert_policy" "alert_canary_v2" {
+resource "newrelic_alert_policy" "alert_canary" {
   count    = length(var.display_names)
   name     = format("%s:%s", var.display_names[count.index].previous, var.display_names[count.index].current)
 }
@@ -42,7 +42,7 @@ resource "newrelic_alert_policy" "alert_canary_v2" {
 
 locals {
   policies_with_display_names = flatten([
-    for idx, created_policy in newrelic_alert_policy.alert_canary_v2 :
+    for idx, created_policy in newrelic_alert_policy.alert_canary :
     [
       for pol in var.conditions : {
       policy_id     = created_policy.id
