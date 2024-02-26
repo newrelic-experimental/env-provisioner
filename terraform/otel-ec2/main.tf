@@ -5,7 +5,7 @@ locals {
         strcontains(k, f)]) }
 
     // Append ec2_prefix to ec2 instances name
-    assembled_ec2 = var.ec2_prefix == "" ? local.filtered_ec2_agents : { for k, v in local.filtered_ec2_agents : format("%s:%s", var.ec2_prefix, k) => v }
+    assembled_ec2 = var.ec2_prefix == "" ? local.filtered_ec2_agents : { for k, v in local.filtered_ec2_agents : format("%s%s%s", var.ec2_prefix, var.ec2_delimiter, k) => v }
 }
 
 module "otels" {

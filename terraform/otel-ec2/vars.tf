@@ -53,6 +53,11 @@ variable "ec2_prefix" {
   default = ""
 }
 
+variable "ec2_delimiter" {
+  description = "Delimiter used for the EC2 instance name between the EC2 instances names prefix and the ec2_otels map key"
+  default = ":"
+}
+
 variable "ec2_filters" {
   description = "EC2 instances names to deploy"
   default = []
