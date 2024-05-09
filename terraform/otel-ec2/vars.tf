@@ -67,6 +67,32 @@ variable "ec2_otels" {
   description = "List of available EC2 instances"
   type        = map(any)
   default = {
+     "amd64:ubuntu24.04" = {
+        ami             = "ami-09040d770ffe2224f"
+        subnet          = "subnet-09b64de757828cdd4"
+        security_groups = ["sg-044ef7bc34691164a"]
+        key_name        = "caos-dev-arm"
+        instance_type   = "t3a.small"
+        username        = "ubuntu"
+        python          = "/usr/bin/python3"
+        platform        = "linux"
+        tags            = {
+          "otel_role" = "agent"
+        }
+      }
+      "arm64:ubuntu24.04" = {
+        ami             = "ami-0acb327475c6fd498"
+        subnet          = "subnet-09b64de757828cdd4"
+        security_groups = ["sg-044ef7bc34691164a"]
+        key_name        = "caos-dev-arm"
+        instance_type   = "t4g.small"
+        username        = "ubuntu"
+        python          = "/usr/bin/python3"
+        platform        = "linux"
+        tags            = {
+          "otel_role" = "agent"
+        }
+      }
      "amd64:ubuntu22.04" = {
         ami             = "ami-0aeb7c931a5a61206"
         subnet          = "subnet-09b64de757828cdd4"
