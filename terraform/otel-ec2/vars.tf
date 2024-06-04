@@ -177,7 +177,7 @@ variable "ec2_otels" {
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t3a.small"
-        username        = "centos"
+        username        = "ec2-user"
         python          = "/usr/bin/python3"
         platform        = "linux"
         tags            = {
@@ -190,7 +190,7 @@ variable "ec2_otels" {
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t4g.small"
-        username        = "cloud-user"
+        username        = "ec2-user"
         python          = "/usr/bin/python3"
         platform        = "linux"
         tags            = {
