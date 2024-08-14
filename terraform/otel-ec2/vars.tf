@@ -119,58 +119,6 @@ variable "ec2_otels" {
           "otel_role" = "agent"
         }
       }
-      "amd64:centos7" = {
-        ami             = "ami-00f8e2c955f7ffa9b"
-        subnet          = "subnet-09b64de757828cdd4"
-        security_groups = ["sg-044ef7bc34691164a"]
-        key_name        = "caos-dev-arm"
-        instance_type   = "t3a.small"
-        username        = "centos"
-        platform        = "linux"
-        python          = "/usr/bin/python"
-        tags            = {
-          "otel_role" = "agent"
-        }
-      }
-      "arm64:centos7" = {
-        ami             = "ami-07f692d95b2b9c8c5"
-        subnet          = "subnet-09b64de757828cdd4"
-        security_groups = ["sg-044ef7bc34691164a"]
-        key_name        = "caos-dev-arm"
-        instance_type   = "t4g.small"
-        username        = "centos"
-        platform        = "linux"
-        python          = "/usr/bin/python"
-        tags            = {
-          "otel_role" = "agent"
-        }
-      }
-      "amd64:centos8" = {
-        ami             = "ami-0ac6967966621d983"
-        subnet          = "subnet-09b64de757828cdd4"
-        security_groups = ["sg-044ef7bc34691164a"]
-        key_name        = "caos-dev-arm"
-        instance_type   = "t3a.small"
-        username        = "centos"
-        platform        = "linux"
-        python          = "/usr/bin/python3"
-        tags            = {
-          "otel_role" = "agent"
-        }
-      }
-      "arm64:centos8" = {
-        ami             = "ami-035734c938e7da7af"
-        subnet          = "subnet-09b64de757828cdd4"
-        security_groups = ["sg-044ef7bc34691164a"]
-        key_name        = "caos-dev-arm"
-        instance_type   = "t4g.small"
-        username        = "centos"
-        platform        = "linux"
-        python          = "/usr/bin/python3"
-        tags            = {
-          "otel_role" = "agent"
-        }
-      }
       "amd64:centos-stream" = {
         ami             = "ami-0be6cd7c3bdcdbf80"
         subnet          = "subnet-09b64de757828cdd4"
@@ -301,32 +249,6 @@ variable "ec2_otels" {
           "otel_role" = "agent"
         }
       }
-      "amd64:redhat-7.9" = {
-        ami             = "ami-0680f7cf1ea8cb793"
-        subnet          = "subnet-09b64de757828cdd4"
-        security_groups = ["sg-044ef7bc34691164a"]
-        key_name        = "caos-dev-arm"
-        instance_type   = "t3a.small"
-        username        = "ec2-user"
-        platform        = "linux"
-        python          = "/usr/bin/python"
-        tags            = {
-          "otel_role" = "agent"
-        }
-      }
-      "arm64:redhat-7.6" = {
-        ami             = "ami-0302c1ecc74930ba5"
-        subnet          = "subnet-09b64de757828cdd4"
-        security_groups = ["sg-044ef7bc34691164a"]
-        key_name        = "caos-dev-arm"
-        instance_type   = "t4g.small"
-        username        = "ec2-user"
-        platform        = "linux"
-        python          = "/usr/bin/python"
-        tags            = {
-          "otel_role" = "agent"
-        }
-      }
       "amd64:redhat-8.4" = {
         ami             = "ami-0ba62214afa52bec7"
         subnet          = "subnet-09b64de757828cdd4"
@@ -362,32 +284,6 @@ variable "ec2_otels" {
         username        = "ec2-user"
         python          = "/usr/bin/python"
         platform        = "linux"
-        tags            = {
-          "otel_role" = "agent"
-        }
-      }
-      "amd64:debian-buster" = {
-        ami             = "ami-0f42acddbf04bd1b6"
-        subnet          = "subnet-09b64de757828cdd4"
-        security_groups = ["sg-044ef7bc34691164a"]
-        key_name        = "caos-dev-arm"
-        instance_type   = "t3a.small"
-        username        = "admin"
-        platform        = "linux"
-        python          = "/usr/bin/python3"
-        tags            = {
-          "otel_role" = "agent"
-        }
-      }
-      "arm64:debian-buster" = {
-        ami             = "ami-07d2054a4befc97f7"
-        subnet          = "subnet-09b64de757828cdd4"
-        security_groups = ["sg-044ef7bc34691164a"]
-        key_name        = "caos-dev-arm"
-        instance_type   = "t4g.small"
-        username        = "admin"
-        platform        = "linux"
-        python          = "/usr/bin/python3"
         tags            = {
           "otel_role" = "agent"
         }
@@ -492,19 +388,6 @@ variable "ec2_otels" {
         username        = "ec2-user"
         python          = "/usr/bin/python3"
         platform        = "linux"
-        tags            = {
-          "otel_role" = "agent"
-        }
-      }
-      "amd64:windows_2012" = {
-        ami             = "ami-0c5d73971003d1ab0"
-        subnet          = "subnet-09b64de757828cdd4"
-        security_groups = ["sg-044ef7bc34691164a"]
-        key_name        = "caos-dev-arm"
-        instance_type   = "t3a.small"
-        username        = "ansible"
-        platform        = "windows"
-        python          = ""
         tags            = {
           "otel_role" = "agent"
         }
