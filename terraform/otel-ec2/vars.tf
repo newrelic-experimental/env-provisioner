@@ -120,7 +120,7 @@ variable "ec2_otels" {
         }
       }
       "amd64:centos-stream" = {
-        ami             = "ami-0be6cd7c3bdcdbf80"
+        ami             = "ami-01529018e3919dace"
         subnet          = "subnet-09b64de757828cdd4"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
@@ -133,7 +133,7 @@ variable "ec2_otels" {
         }
       }
       "arm64:centos-stream" = {
-        ami             = "ami-08116befa629fbe3b"
+        ami             = "ami-0e98f9d5c9841c9ad"
         subnet          = "subnet-09b64de757828cdd4"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
