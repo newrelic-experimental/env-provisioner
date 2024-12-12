@@ -237,7 +237,7 @@ variable "ec2_otels" {
         }
       }
       "amd64:sles-15.6" = {
-        ami             = "ami-0747e95148683f30f"
+        ami             = "ami-0371c70ae504994fd"
         subnet          = "subnet-09b64de757828cdd4"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
@@ -263,7 +263,7 @@ variable "ec2_otels" {
         }
       }
       "arm64:sles-15.6" = {
-        ami             = "ami-009a382796e6a08cb"
+        ami             = "ami-0c4951af165b1a4ae"
         subnet          = "subnet-09b64de757828cdd4"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
