@@ -198,7 +198,7 @@ variable "ec2_otels" {
         }
       }
       "amd64:sles-15.4" = {
-        ami             = "ami-0ddfe532f41b29bac"
+        ami             = "ami-0baf7d00b43fd908d"
         subnet          = "subnet-09b64de757828cdd4"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
