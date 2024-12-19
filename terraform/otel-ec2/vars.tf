@@ -198,7 +198,7 @@ variable "ec2_otels" {
         }
       }
       "amd64:sles-15.4" = {
-        ami             = "ami-0ca19ecee2be612fc"
+        ami             = "ami-0baf7d00b43fd908d"
         subnet          = "subnet-09b64de757828cdd4"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
@@ -211,7 +211,7 @@ variable "ec2_otels" {
         }
       }
       "arm64:sles-15.4" = {
-        ami             = "ami-0885abe5302e6fee0"
+        ami             = "ami-052fd3067d337faf6"
         subnet          = "subnet-09b64de757828cdd4"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
@@ -237,7 +237,7 @@ variable "ec2_otels" {
         }
       }
       "amd64:sles-15.6" = {
-        ami             = "ami-0747e95148683f30f"
+        ami             = "ami-0a752653199c4fce6"
         subnet          = "subnet-09b64de757828cdd4"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
@@ -263,7 +263,7 @@ variable "ec2_otels" {
         }
       }
       "arm64:sles-15.6" = {
-        ami             = "ami-009a382796e6a08cb"
+        ami             = "ami-0bce4f43ac4014da1"
         subnet          = "subnet-09b64de757828cdd4"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
