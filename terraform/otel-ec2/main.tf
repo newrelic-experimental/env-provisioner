@@ -42,6 +42,7 @@ resource "null_resource" "wait_linux" {
   }
 }
 
+# TODO: We need to update this when we can test connectivitly to FIPS hosts
 # resource "null_resource" "wait_linux_fips" {
 
 #   for_each = {for key, val in local.assembled_ec2:
