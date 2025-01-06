@@ -405,8 +405,34 @@ variable "ec2_otels" {
           "otel_role" = "agent"
         }
       }
+      "amd64:al-2023-fips" = {
+        ami             = "ami-085fa628e46dcb929"
+        subnet          = "subnet-09b64de757828cdd4"
+        security_groups = ["sg-044ef7bc34691164a"]
+        key_name        = "caos-dev-arm"
+        instance_type   = "t3a.small"
+        username        = "ec2-user"
+        python          = "/usr/bin/python3"
+        platform        = "linux"
+        tags            = {
+          "otel_role" = "agent"
+        }
+      }
       "arm64:al-2023" = {
         ami             = "ami-07d16074c2fdf3a19"
+        subnet          = "subnet-09b64de757828cdd4"
+        security_groups = ["sg-044ef7bc34691164a"]
+        key_name        = "caos-dev-arm"
+        instance_type   = "t4g.small"
+        username        = "ec2-user"
+        python          = "/usr/bin/python3"
+        platform        = "linux"
+        tags            = {
+          "otel_role" = "agent"
+        }
+      }
+      "arm64:al-2023-fips" = {
+        ami             = "ami-06014e12b8efb52e2"
         subnet          = "subnet-09b64de757828cdd4"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"

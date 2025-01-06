@@ -26,7 +26,7 @@ module "otels" {
 resource "null_resource" "wait_linux" {
 
   for_each = {for key, val in local.assembled_ec2:
-              key => val if val.platform == "linux"}
+              key => val if val.platform == "linux" && !strcontains(key, "fips")}
 
   provisioner "remote-exec" {
     connection {
@@ -41,6 +41,26 @@ resource "null_resource" "wait_linux" {
     ]
   }
 }
+
+# TODO: We need to update this when we can test connectivitly to FIPS hosts
+# resource "null_resource" "wait_linux_fips" {
+
+#   for_each = {for key, val in local.assembled_ec2:
+#               key => val if val.platform == "linux" && strcontains(key, "fips")}
+
+#   provisioner "remote-exec" {
+#     connection {
+#       type        = "ssh"
+#       user        = each.value.username
+#       host        = module.otels[each.key].private_ip
+#       private_key = file(var.pvt_key)
+#     }
+
+#     inline = [
+#       "echo 'connected in FIPS mode'"
+#     ]
+#   }
+# }
 
 resource "null_resource" "wait_windows" {
 
