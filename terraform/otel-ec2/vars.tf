@@ -483,5 +483,18 @@ variable "ec2_otels" {
           "otel_role" = "agent"
         }
       }
+      "amd64:windows_2025" = {
+        ami             = "ami-00447dbdb9a46c432"
+        subnet          = "subnet-09b64de757828cdd4"
+        security_groups = ["sg-044ef7bc34691164a"]
+        key_name        = "caos-dev-arm"
+        instance_type   = "t3a.small"
+        username        = "ansible"
+        platform        = "windows"
+        python          = ""
+        tags            = {
+          "otel_role" = "agent"
+        }
+      }
   }
 }
