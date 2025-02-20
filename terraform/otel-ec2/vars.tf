@@ -184,19 +184,6 @@ variable "ec2_otels" {
           "otel_role" = "agent"
         }
       }
-      "arm64:sles-15.3" = {
-        ami             = "ami-0194f07e3eedf8118"
-        subnet          = "subnet-09b64de757828cdd4"
-        security_groups = ["sg-044ef7bc34691164a"]
-        key_name        = "caos-dev-arm"
-        instance_type   = "t4g.small"
-        username        = "ec2-user"
-        platform        = "linux"
-        python          = "/usr/bin/python3"
-        tags            = {
-          "otel_role" = "agent"
-        }
-      }
       "amd64:sles-15.4" = {
         ami             = "ami-0baf7d00b43fd908d"
         subnet          = "subnet-09b64de757828cdd4"
