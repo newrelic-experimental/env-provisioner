@@ -69,7 +69,7 @@ variable "ec2_otels" {
   default = {
      "amd64:ubuntu24.04" = {
         ami             = "ami-09040d770ffe2224f"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t3a.small"
@@ -82,7 +82,7 @@ variable "ec2_otels" {
       }
       "arm64:ubuntu24.04" = {
         ami             = "ami-0acb327475c6fd498"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t4g.small"
@@ -95,7 +95,7 @@ variable "ec2_otels" {
       }
      "amd64:ubuntu22.04" = {
         ami             = "ami-0aeb7c931a5a61206"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t3a.small"
@@ -108,7 +108,7 @@ variable "ec2_otels" {
       }
       "arm64:ubuntu22.04" = {
         ami             = "ami-0717cbd2f49a61ed0"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t4g.small"
@@ -121,7 +121,7 @@ variable "ec2_otels" {
       }
       "amd64:centos-stream" = {
         ami             = "ami-01529018e3919dace"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t3a.small"
@@ -134,7 +134,7 @@ variable "ec2_otels" {
       }
       "arm64:centos-stream" = {
         ami             = "ami-0e98f9d5c9841c9ad"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t4g.small"
@@ -147,7 +147,7 @@ variable "ec2_otels" {
       }
       "amd64:sles-12.5" = {
         ami             = "ami-0314425a95f19ff16"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t3a.small"
@@ -160,7 +160,7 @@ variable "ec2_otels" {
       }
       "amd64:sles-15.2" = {
         ami             = "ami-0e44499c443e91acd"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t3a.small"
@@ -173,7 +173,7 @@ variable "ec2_otels" {
       }
       "amd64:sles-15.3" = {
         ami             = "ami-0446c700e1dc61753"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t3a.small"
@@ -186,7 +186,7 @@ variable "ec2_otels" {
       }
       "amd64:sles-15.4" = {
         ami             = "ami-0baf7d00b43fd908d"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t3a.small"
@@ -199,7 +199,7 @@ variable "ec2_otels" {
       }
       "arm64:sles-15.4" = {
         ami             = "ami-052fd3067d337faf6"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t4g.small"
@@ -212,7 +212,7 @@ variable "ec2_otels" {
       }
       "amd64:sles-15.5" = {
         ami             = "ami-0e03a27c1453107db"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t3a.small"
@@ -225,7 +225,7 @@ variable "ec2_otels" {
       }
       "amd64:sles-15.6" = {
         ami             = "ami-0a752653199c4fce6"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t3a.small"
@@ -238,7 +238,7 @@ variable "ec2_otels" {
       }
       "arm64:sles-15.5" = {
         ami             = "ami-046216af2ce255621"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t4g.small"
@@ -251,7 +251,7 @@ variable "ec2_otels" {
       }
       "arm64:sles-15.6" = {
         ami             = "ami-0bce4f43ac4014da1"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t4g.small"
@@ -264,7 +264,7 @@ variable "ec2_otels" {
       }
       "amd64:redhat-8.4" = {
         ami             = "ami-0ba62214afa52bec7"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t3a.small"
@@ -277,7 +277,7 @@ variable "ec2_otels" {
       }
       "amd64:redhat-9.0" = {
         ami             = "ami-078cbc4c2d057c244"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t3a.small"
@@ -290,7 +290,7 @@ variable "ec2_otels" {
       }
       "arm64:redhat-9.0" = {
         ami             = "ami-01089181b0aa3be51"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t4g.small"
@@ -303,7 +303,7 @@ variable "ec2_otels" {
       }
       "amd64:debian-bullseye" = {
         ami             = "ami-08a0dab67e025361b"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t3a.small"
@@ -316,7 +316,7 @@ variable "ec2_otels" {
       }
       "arm64:debian-bullseye" = {
         ami             = "ami-03cabbbc935f5826f"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t4g.small"
@@ -329,7 +329,7 @@ variable "ec2_otels" {
       }
       "amd64:debian-bookworm" = {
         ami             = "ami-02e9e442f629e6834"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t3a.small"
@@ -342,7 +342,7 @@ variable "ec2_otels" {
       }
       "arm64:debian-bookworm" = {
         ami             = "ami-05f312273b2ebaf0b"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t4g.small"
@@ -355,7 +355,7 @@ variable "ec2_otels" {
       }
       "amd64:al-2" = {
         ami             = "ami-077e31c4939f6a2f3"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t3a.small"
@@ -368,7 +368,7 @@ variable "ec2_otels" {
       }
       "arm64:al-2" = {
         ami             = "ami-07a3e3eda401f8caa"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t4g.small"
@@ -381,7 +381,7 @@ variable "ec2_otels" {
       }
       "amd64:al-2023" = {
         ami             = "ami-0103f211a154d64a6"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t3a.small"
@@ -394,7 +394,7 @@ variable "ec2_otels" {
       }
       "amd64:al-2023-fips" = {
         ami             = "ami-085fa628e46dcb929"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t3a.small"
@@ -407,7 +407,7 @@ variable "ec2_otels" {
       }
       "arm64:al-2023" = {
         ami             = "ami-07d16074c2fdf3a19"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t4g.small"
@@ -420,7 +420,7 @@ variable "ec2_otels" {
       }
       "arm64:al-2023-fips" = {
         ami             = "ami-06014e12b8efb52e2"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t4g.small"
@@ -433,7 +433,7 @@ variable "ec2_otels" {
       }
       "amd64:windows_2016" = {
         ami             = "ami-03d46abfa414238dd"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t3a.small"
@@ -446,7 +446,7 @@ variable "ec2_otels" {
       }
       "amd64:windows_2019" = {
         ami             = "ami-077e49a076b7e3847"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t3a.small"
@@ -459,7 +459,7 @@ variable "ec2_otels" {
       }
       "amd64:windows_2022" = {
         ami             = "ami-0780c2aa3485f2088"
-        subnet          = "subnet-09b64de757828cdd4"
+        subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-044ef7bc34691164a"]
         key_name        = "caos-dev-arm"
         instance_type   = "t3a.small"
