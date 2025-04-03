@@ -431,34 +431,21 @@ variable "ec2_otels" {
           "otel_role" = "agent"
         }
       }
-      "amd64:windows_2016" = {
-        ami             = "ami-03d46abfa414238dd"
-        subnet          = "subnet-0c2046d7a0595aa2c"
-        security_groups = ["sg-075f379cc5612e984"]
-        key_name        = "caos-dev-arm"
-        instance_type   = "t3a.small"
-        username        = "ansible"
-        platform        = "windows"
-        python          = ""
-        tags            = {
-          "otel_role" = "agent"
-        }
-      }
-      "amd64:windows_2019" = {
-        ami             = "ami-077e49a076b7e3847"
-        subnet          = "subnet-0c2046d7a0595aa2c"
-        security_groups = ["sg-075f379cc5612e984"]
-        key_name        = "caos-dev-arm"
-        instance_type   = "t3a.small"
-        username        = "ansible"
-        platform        = "windows"
-        python          = ""
-        tags            = {
-          "otel_role" = "agent"
-        }
-      }
       "amd64:windows_2022" = {
-        ami             = "ami-0780c2aa3485f2088"
+        ami             = "ami-027ca42d13c20d4cb"
+        subnet          = "subnet-0c2046d7a0595aa2c"
+        security_groups = ["sg-075f379cc5612e984"]
+        key_name        = "caos-dev-arm"
+        instance_type   = "t3a.small"
+        username        = "ansible"
+        platform        = "windows"
+        python          = ""
+        tags            = {
+          "otel_role" = "agent"
+        }
+      }
+      "amd64:windows_2025" = {
+        ami             = "ami-0db7807982c6032e1"
         subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-075f379cc5612e984"]
         key_name        = "caos-dev-arm"
