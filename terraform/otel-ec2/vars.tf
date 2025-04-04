@@ -432,7 +432,7 @@ variable "ec2_otels" {
         }
       }
       "amd64:windows_2022" = {
-        ami             = "ami-027ca42d13c20d4cb"
+        ami             = "ami-0feb3a0caad202bce"
         subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-075f379cc5612e984"]
         key_name        = "caos-dev-arm"
@@ -445,7 +445,7 @@ variable "ec2_otels" {
         }
       }
       "amd64:windows_2025" = {
-        ami             = "ami-0db7807982c6032e1"
+        ami             = "ami-059a9049ae7e40d51"
         subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-075f379cc5612e984"]
         key_name        = "caos-dev-arm"
