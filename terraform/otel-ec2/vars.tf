@@ -171,6 +171,7 @@ variable "ec2_otels" {
           "otel_role" = "agent"
         }
       }
+      // AMI missing
       "amd64:sles-15.3" = {
         ami             = "ami-0446c700e1dc61753"
         subnet          = "subnet-0c2046d7a0595aa2c"
@@ -210,6 +211,7 @@ variable "ec2_otels" {
           "otel_role" = "agent"
         }
       }
+      // ami missing
       "amd64:sles-15.5" = {
         ami             = "ami-0e03a27c1453107db"
         subnet          = "subnet-0c2046d7a0595aa2c"
@@ -236,6 +238,7 @@ variable "ec2_otels" {
           "otel_role" = "agent"
         }
       }
+      // ami missing
       "arm64:sles-15.5" = {
         ami             = "ami-046216af2ce255621"
         subnet          = "subnet-0c2046d7a0595aa2c"
@@ -419,7 +422,7 @@ variable "ec2_otels" {
         }
       }
       "arm64:al-2023-fips" = {
-        ami             = "	ami-0edddf62c25da5c5e"
+        ami             = "ami-0edddf62c25da5c5e"
         subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-075f379cc5612e984"]
         key_name        = "caos-dev-arm"
