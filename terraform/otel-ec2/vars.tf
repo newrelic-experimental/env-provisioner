@@ -173,7 +173,7 @@ variable "ec2_otels" {
       }
       // AMI missing
       "amd64:sles-15.3" = {
-        ami             = "ami-00b458305c4ecca4d"
+        ami             = "ami-04100b199504da97b"
         subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-075f379cc5612e984"]
         key_name        = "caos-dev-arm"
@@ -213,7 +213,7 @@ variable "ec2_otels" {
       }
       // ami missing
       "amd64:sles-15.5" = {
-        ami             = "ami-0962c61a5be38aa58"
+        ami             = "ami-0287836452fa359da"
         subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-075f379cc5612e984"]
         key_name        = "caos-dev-arm"
@@ -240,7 +240,7 @@ variable "ec2_otels" {
       }
       // ami missing
       "arm64:sles-15.5" = {
-        ami             = "ami-0036def723b1045c2"
+        ami             = "ami-012bb28fd7e331024"
         subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-075f379cc5612e984"]
         key_name        = "caos-dev-arm"
