@@ -173,7 +173,7 @@ variable "ec2_otels" {
       }
       // AMI missing
       "amd64:sles-15.3" = {
-        ami             = "ami-04100b199504da97b"
+        ami             = "ami-00b458305c4ecca4d"
         subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-075f379cc5612e984"]
         key_name        = "caos-dev-arm"
