@@ -172,19 +172,7 @@ variable "ec2_otels" {
         }
       }
       // AMI missing
-      "amd64:sles-15.3" = {
-        ami             = "ami-00b458305c4ecca4d"
-        subnet          = "subnet-0c2046d7a0595aa2c"
-        security_groups = ["sg-075f379cc5612e984"]
-        key_name        = "caos-dev-arm"
-        instance_type   = "t3a.small"
-        username        = "ec2-user"
-        platform        = "linux"
-        python          = "/usr/bin/python3"
-        tags            = {
-          "otel_role" = "agent"
-        }
-      }
+
       "amd64:sles-15.4" = {
         ami             = "ami-0baf7d00b43fd908d"
         subnet          = "subnet-0c2046d7a0595aa2c"
