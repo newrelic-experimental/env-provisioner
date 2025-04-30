@@ -171,8 +171,19 @@ variable "ec2_otels" {
           "otel_role" = "agent"
         }
       }
-      // AMI missing
-
+      "amd64:sles-15.3" = {
+        ami             = "ami-0446c700e1dc61753"
+        subnet          = "subnet-09b64de757828cdd4"
+        security_groups = ["sg-044ef7bc34691164a"]
+        key_name        = "caos-dev-arm"
+        instance_type   = "t3a.small"
+        username        = "ec2-user"
+        platform        = "linux"
+        python          = "/usr/bin/python3"
+        tags            = {
+          "otel_role" = "agent"
+        }
+      }
       "amd64:sles-15.4" = {
         ami             = "ami-0baf7d00b43fd908d"
         subnet          = "subnet-0c2046d7a0595aa2c"
@@ -199,7 +210,6 @@ variable "ec2_otels" {
           "otel_role" = "agent"
         }
       }
-      // ami missing
       "amd64:sles-15.5" = {
         ami             = "ami-04504b468e262a288"
         subnet          = "subnet-0c2046d7a0595aa2c"
@@ -226,7 +236,6 @@ variable "ec2_otels" {
           "otel_role" = "agent"
         }
       }
-      // ami missing
       "arm64:sles-15.5" = {
         ami             = "ami-012bb28fd7e331024"
         subnet          = "subnet-0c2046d7a0595aa2c"
