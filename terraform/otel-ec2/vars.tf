@@ -173,8 +173,8 @@ variable "ec2_otels" {
       }
       "amd64:sles-15.3" = {
         ami             = "ami-0b7b425050b12e3f9"
-        subnet          = "subnet-09b64de757828cdd4"
-        security_groups = ["sg-044ef7bc34691164a"]
+        subnet          = "subnet-0c2046d7a0595aa2c"
+        security_groups = ["sg-075f379cc5612e984"]
         key_name        = "caos-dev-arm"
         instance_type   = "t3a.small"
         username        = "ec2-user"
