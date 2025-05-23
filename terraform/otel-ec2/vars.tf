@@ -67,7 +67,7 @@ variable "ec2_otels" {
   description = "List of available EC2 instances"
   type        = map(any)
   default = {
-     "amd64:ubuntu24.04" = {
+     "amd64:ubuntu24.04-A2q" = {
         ami             = "ami-09040d770ffe2224f"
         subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-075f379cc5612e984"]
@@ -80,7 +80,7 @@ variable "ec2_otels" {
           "otel_role" = "agent"
         }
       }
-      "arm64:ubuntu24.04" = {
+      "arm64:ubuntu24.04A2q" = {
         ami             = "ami-0acb327475c6fd498"
         subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-075f379cc5612e984"]
