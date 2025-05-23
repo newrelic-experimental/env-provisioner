@@ -63,6 +63,84 @@ variable "ec2_filters" {
   default = []
 }
 
+variable "is_A2Q" {
+  description = "Flag to determine if A2Q is true"
+  type        = bool
+  default     = false
+}
+
+variable "ec2_A2Q" {
+  description = "List of available EC2 for A2Q canaries"
+  type        = map(any)
+  default = {
+     "A2Q_config1_amd64:ubuntu24.04" = {
+        ami             = "ami-09040d770ffe2224f"
+        subnet          = "subnet-0c2046d7a0595aa2c"
+        security_groups = ["sg-075f379cc5612e984"]
+        key_name        = "caos-dev-arm"
+        instance_type   = "t3a.small"
+        username        = "ubuntu"
+        python          = "/usr/bin/python3"
+        platform        = "linux"
+        tags            = {
+          "otel_role" = "agent"
+        }
+      }
+     "A2Q_config2_amd64:ubuntu24.04" = {
+        ami             = "ami-09040d770ffe2224f"
+        subnet          = "subnet-0c2046d7a0595aa2c"
+        security_groups = ["sg-075f379cc5612e984"]
+        key_name        = "caos-dev-arm"
+        instance_type   = "t3a.small"
+        username        = "ubuntu"
+        python          = "/usr/bin/python3"
+        platform        = "linux"
+        tags            = {
+          "otel_role" = "agent"
+        }
+      }
+      "A2Q_config3_amd64:ubuntu24.04" = {
+        ami             = "ami-09040d770ffe2224f"
+        subnet          = "subnet-0c2046d7a0595aa2c"
+        security_groups = ["sg-075f379cc5612e984"]
+        key_name        = "caos-dev-arm"
+        instance_type   = "t3a.small"
+        username        = "ubuntu"
+        python          = "/usr/bin/python3"
+        platform        = "linux"
+        tags            = {
+          "otel_role" = "agent"
+        }
+      }
+      "A2Q_config4_amd64:ubuntu24.04" = {
+        ami             = "ami-09040d770ffe2224f"
+        subnet          = "subnet-0c2046d7a0595aa2c"
+        security_groups = ["sg-075f379cc5612e984"]
+        key_name        = "caos-dev-arm"
+        instance_type   = "t3a.small"
+        username        = "ubuntu"
+        python          = "/usr/bin/python3"
+        platform        = "linux"
+        tags            = {
+          "otel_role" = "agent"
+        }
+      }
+      "A2Q_config5_amd64:ubuntu24.04" = {
+        ami             = "ami-09040d770ffe2224f"
+        subnet          = "subnet-0c2046d7a0595aa2c"
+        security_groups = ["sg-075f379cc5612e984"]
+        key_name        = "caos-dev-arm"
+        instance_type   = "t3a.small"
+        username        = "ubuntu"
+        python          = "/usr/bin/python3"
+        platform        = "linux"
+        tags            = {
+          "otel_role" = "agent"
+        }
+      }
+  }
+}
+
 variable "ec2_otels" {
   description = "List of available EC2 instances"
   type        = map(any)
