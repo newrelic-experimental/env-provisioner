@@ -19,7 +19,7 @@ terraform {
 }
 module "otels" {
   source  = "registry.terraform.io/terraform-aws-modules/ec2-instance/aws"
-  version = "3.4.0"
+  version = "3.5.0"
 
   for_each               = local.assembled_ec2
   name                   = each.key

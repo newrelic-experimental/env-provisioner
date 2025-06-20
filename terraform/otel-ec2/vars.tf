@@ -138,7 +138,7 @@ variable "ec2_A2Q" {
           "otel_role" = "agent"
         }
       }
-      "A2Q_config5_amd64:windows_2025" = {
+      "A2Q_config6_amd64:windows_2025" = {
         ami             = "ami-059a9049ae7e40d51"
         subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-075f379cc5612e984"]
