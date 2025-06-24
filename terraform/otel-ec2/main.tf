@@ -8,6 +8,14 @@ locals {
     assembled_ec2 = var.ec2_prefix == "" ? local.filtered_ec2_agents : { for k, v in local.filtered_ec2_agents : format("%s%s%s", var.ec2_prefix, var.ec2_delimiter, k) => v }
 }
 
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.100.0"
+    }
+  }
+}
 module "otels" {
   source  = "registry.terraform.io/terraform-aws-modules/ec2-instance/aws"
   version = "3.4.0"
