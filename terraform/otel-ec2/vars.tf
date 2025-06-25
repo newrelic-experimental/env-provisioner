@@ -432,7 +432,7 @@ variable "ec2_otels" {
         }
       }
       "amd64:alma-8" = {
-        ami             = "ami-02825266d2b3af325"
+        ami             = "ami-0f4ab906702bed7d5"
         subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-075f379cc5612e984"]
         key_name        = "caos-dev-arm"
@@ -445,20 +445,7 @@ variable "ec2_otels" {
         }
       }
       "arm64:alma-8" = {
-        ami             = "ami-0d5fa877615f326ff"
-        subnet          = "subnet-0c2046d7a0595aa2c"
-        security_groups = ["sg-075f379cc5612e984"]
-        key_name        = "caos-dev-arm"
-        instance_type   = "t4g.small"
-        username        = "ec2-user"
-        python          = "/usr/bin/python3"
-        platform        = "linux"
-        tags            = {
-          "otel_role" = "agent"
-        }
-      }
-      "amd64:alma-9" = {
-        ami             = "ami-004ab7ad00a70a340"
+        ami             = "ami-01d5ed1fa2aab982a"
         subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-075f379cc5612e984"]
         key_name        = "caos-dev-arm"
