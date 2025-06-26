@@ -457,7 +457,7 @@ variable "ec2_otels" {
           "otel_role" = "agent"
         }
       }
-      "amd64:alma-9" = {
+      "x86_64:alma-9" = {
         ami             = "ami-094e4e0a65dc1a6fb"
         subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-075f379cc5612e984"]
@@ -470,7 +470,7 @@ variable "ec2_otels" {
           "otel_role" = "agent"
         }
       }
-      "arm64:alma-9" = {
+      "x86_64:alma-9" = {
         ami             = "ami-04ffbb662aa930003"
         subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-075f379cc5612e984"]
