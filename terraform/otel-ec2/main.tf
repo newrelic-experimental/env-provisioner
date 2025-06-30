@@ -1,13 +1,13 @@
 locals {
     // filter EC2 instances to launch
-    filtered_ec2_agents = length(var.ec2_filters) == 0 ? var.ec2_otels : {
-    for k, v in var.ec2_otels : k => v if anytrue([for f in var.ec2_filters :
+    ec2_otels = var.is_A2Q ? var.ec2_A2Q :  var.ec2_otels
+    filtered_ec2_agents = length(var.ec2_filters) == 0 ? local.ec2_otels : {
+    for k, v in local.ec2_otels : k => v if anytrue([for f in var.ec2_filters :
         strcontains(k, f)]) }
 
     // Append ec2_prefix to ec2 instances name
     assembled_ec2 = var.ec2_prefix == "" ? local.filtered_ec2_agents : { for k, v in local.filtered_ec2_agents : format("%s%s%s", var.ec2_prefix, var.ec2_delimiter, k) => v }
 }
-
 terraform {
   required_providers {
     aws = {
