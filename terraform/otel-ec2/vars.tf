@@ -224,7 +224,7 @@ variable "ec2_otels" {
         }
       }
       "arm64:centos-stream" = {
-        ami             = "ami-02a73314ae62bf547"
+        ami             = "ami-033cf81c815abfe13"
         subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-075f379cc5612e984"]
         key_name        = "caos-dev-arm"
