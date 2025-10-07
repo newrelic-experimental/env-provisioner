@@ -353,6 +353,32 @@ variable "ec2_otels" {
           "otel_role" = "agent"
         }
       }
+      "amd64:sles-15.7" = {
+        ami             = "ami-01de4781572fa1285"
+        subnet          = "subnet-0c2046d7a0595aa2c"
+        security_groups = ["sg-075f379cc5612e984"]
+        key_name        = "caos-dev-arm"
+        instance_type   = "t3a.small"
+        username        = "ec2-user"
+        python          = "/usr/bin/python3"
+        platform        = "linux"
+        tags            = {
+          "otel_role" = "agent"
+        }
+      }
+      "arm64:sles-15.7" = {
+        ami             = "ami-07a87997f8f4ef819"
+        subnet          = "subnet-0c2046d7a0595aa2c"
+        security_groups = ["sg-075f379cc5612e984"]
+        key_name        = "caos-dev-arm"
+        instance_type   = "t4g.small"
+        username        = "ec2-user"
+        python          = "/usr/bin/python3"
+        platform        = "linux"
+        tags            = {
+          "otel_role" = "agent"
+        }
+      }
       "amd64:redhat-8.4" = {
         ami             = "ami-0ba62214afa52bec7"
         subnet          = "subnet-0c2046d7a0595aa2c"
