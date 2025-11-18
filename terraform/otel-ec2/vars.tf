@@ -550,7 +550,7 @@ variable "ec2_otels" {
         }
       }
       "amd64:al-2023" = {
-        ami             = "ami-0103f211a154d64a6"
+        ami             = "ami-0a627a85fdcfabbaa"
         subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-075f379cc5612e984"]
         key_name        = "caos-dev-arm"
