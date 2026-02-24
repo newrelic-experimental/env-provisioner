@@ -420,7 +420,7 @@ variable "ec2_otels" {
       }
 
       "amd64:redhat-10.0" = {
-        ami             = "ami-068d5d5ed1eeea07c"
+        ami             = "ami-0b999ee292b09fdba"
         subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-075f379cc5612e984"]
         key_name        = "caos-dev-arm"
@@ -433,7 +433,7 @@ variable "ec2_otels" {
         }
       }
       "arm64:redhat-10.0" = {
-        ami             = "ami-07b21932ee4cac8c0"
+        ami             = "ami-0bf41e46ac9ce3376"
         subnet          = "subnet-0c2046d7a0595aa2c"
         security_groups = ["sg-075f379cc5612e984"]
         key_name        = "caos-dev-arm"
