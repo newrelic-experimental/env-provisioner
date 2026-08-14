@@ -151,6 +151,33 @@ variable "ec2_A2Q" {
           "otel_role" = "agent"
         }
       }
+      # AC-managed custom-path canaries
+      "A2Q_config7_amd64:ubuntu24.04" = {
+        ami             = "ami-09040d770ffe2224f"
+        subnet          = "subnet-0c2046d7a0595aa2c"
+        security_groups = ["sg-075f379cc5612e984"]
+        key_name        = "caos-dev-arm"
+        instance_type   = "t3a.small"
+        username        = "ubuntu"
+        python          = "/usr/bin/python3"
+        platform        = "linux"
+        tags            = {
+          "otel_role" = "agent"
+        }
+      }
+      "A2Q_config8_amd64:windows_2025" = {
+        ami             = "ami-059a9049ae7e40d51"
+        subnet          = "subnet-0c2046d7a0595aa2c"
+        security_groups = ["sg-075f379cc5612e984"]
+        key_name        = "caos-dev-arm"
+        instance_type   = "t3a.small"
+        username        = "ansible"
+        platform        = "windows"
+        python          = ""
+        tags            = {
+          "otel_role" = "agent"
+        }
+      }
   }
 }
 
